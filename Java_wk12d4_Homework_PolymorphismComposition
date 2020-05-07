@@ -1,0 +1,46 @@
+Q. What does the *word* polymorphism mean?
+A. Polymorphism means "comes in many forms", from poly, which means many, and morphe, which means form.
+
+Q. What does it mean when we apply polymorphism to OO design? Give a simple Java example.
+A. Applying polymorphism means that an object can have more than one type. In Java, an interface can be implemented on a class, which gives objects of the class the ability to belong to the type of the class and also the type of the interface. e.g.
+
+public class Book implements IReadable
+
+Objects of the Book class would then be able to be collected with other Book objects, and Books could also be brought in with items which are readable but which are not books. In this way, you could make a list of Readable items, like books, shampoo bottles, clocks, etc.
+
+Q. What can we use to implement polymorphism in Java?
+A. Interfaces can be used to implement polymorphism, as seen above.
+
+Q. How many 'forms' can an object take when using polymorphism?
+A. In theory, any object can have any number of forms, but at least two. For example:
+
+public class Book implements IReadable, IDoorstop, ICuboid, IProjectile, ICombustible...
+
+Q. Give an example of when you could use polymorphism.
+A. In the above example, the developer may want to collect items which are not Book objects but which are also Readable, Combustible, Cuboidal, and able to be used as Projectiles or Doorstops.
+
+Q. What do we mean by 'composition' in reference to object-oriented programming?
+A. Composition is when objects of class A are used as properties on objects of class B.
+
+Q. When would you use composition? Provide a simple example in Java.
+A. You would use composition when you wanted to have class objects which "contain" other objects of a different class.
+
+e.g. public class Bin {
+
+  private ArrayList<Recyclable> recyclables;
+  private ArrayList<NonRecyclable> nonRecyclables;
+
+  public Bin(){
+    this.recyclables = new ArrayList<Recyclable>();
+    this.nonRecyclables = new ArrayList<NonRecyclable>();
+  }
+
+}
+
+A Bin class object contains an ArrayList of Recyclable class objects and an array of NonRecyclable class objects.
+
+@. What is/are the advantage(s) of using composition?
+A. Using composition means you can relate various objects which could not be easily related by inheritance. It is also easier to design with composition rather than designing an inheritance hierarchy.
+
+Q. When an object is destroyed, what happens to all the objects it is composed of?
+A. The objects it is composed of will persist, as they are instantiated outside of the object and then added to the object.
